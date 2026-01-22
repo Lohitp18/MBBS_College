@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --amc-navy: #0A0B49;
+  --amc-cyan: #14D7E7;
+  --amc-strip: #D8D8D8;
+}
+
+body {
+  @apply bg-white text-black;
+}
