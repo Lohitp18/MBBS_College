@@ -1,12 +1,23 @@
 "use client";
 import { useRef } from "react";
 
+import { useScroll, useTransform } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 export default function Departments() {
     const [open, setOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("Pre-Clinical");
+
+    const leftRef = useRef(null);
+
+const { scrollYProgress } = useScroll({
+    target: leftRef,
+    offset: ["start end", "end start"],
+});
+
+const logoY = useTransform(scrollYProgress, [0, 1], [-180, 160]);
+
 
     const departmentData = {
         "Pre-Clinical": ["Anatomy", "Physiology", "Biochemistry"],
@@ -60,32 +71,49 @@ export default function Departments() {
         <section className="w-full bg-white py-24">
             <div className="w-full px-6">
 
-                {/* RIGHT-ALIGNED CONTENT */}
-                <div className="flex justify-end">
+                {/* 30% / 70% LAYOUT */}
+                <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] w-full">
 
-                    <div className="w-full lg:w-[70%]">
+                    {/* LEFT 30% — PARALLAX LOGO */}
+                    <motion.div
+                        ref={leftRef}
+                        className="relative overflow-hidden min-h-[900px] hidden lg:block"
+                    >
+                    <motion.div
+                        style={{ y: logoY }}
+                        className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none"
+                    >
+                    <img
+                        src="/images/logo_black.jpeg"
+                        alt="Logo"
+                        className="w-[135%] max-w-[720px] object-contain"
+                    />
+                    </motion.div>
+                </motion.div>
 
-                        {/* HEADING */}
+                    {/* RIGHT 70% CONTENT */}
+                    <div className="w-full">
+
+                    {/* HEADING */}
                         <div className="mb-16">
                             <p className="text-gray-600 font-medium">
-                                Departments at Medical College
-                            </p>
+                            Departments at Medical College
+                        </p>
                             <h2 className="mt-3 text-4xl font-extrabold text-gray-900 leading-tight">
-                                Providing Quality <br /> Education to all
-                            </h2>
+                            Providing Quality <br /> Education to all
+                        </h2>
                         </div>
 
-                        {/* BLUE CONTAINER */}
-                        <div
-                            className="
-                                h-[720px]
-                                rounded-l-xl
-                                bg-[#0A0B49]
-                                px-10 py-10
-                                flex flex-col
+                    {/* BLUE CONTAINER */}
+                    <div
+                        className="
+                            h-[720px]
+                            rounded-l-xl
+                            bg-[#0A0B49]
+                            px-10 py-10
+                            flex flex-col
                             "
-                        >
-
+                    >
                             {/* DROPDOWN */}
                             <div className="relative mb-6 w-[240px] mx-auto">
                                 <button
