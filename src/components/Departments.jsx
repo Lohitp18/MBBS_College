@@ -1,296 +1,177 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Departments() {
-    const pathname = usePathname();
+    const [open, setOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("Pre-Clinical");
 
-    const deptBtn =
-        "w-fit text-left px-3 py-1 rounded-md transition " +
-        "hover:bg-white/10 hover:text-[#14D7E7] focus:outline-none focus:ring-2 focus:ring-[#14D7E7]";
-
-    // Animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
+    const departmentData = {
+        "Pre-Clinical": ["Anatomy", "Physiology", "Biochemistry"],
+        "Para-Clinical": [
+            "Pathology",
+            "Pharmacology",
+            "Microbiology",
+            "Forensic Medicine",
+            "Community Medicine"
+        ],
+        "Clinical": [
+            "General Medicine",
+            "Surgery",
+            "Pediatrics",
+            "Obstetrics & Gynecology",
+            "Orthopedics",
+            "Ophthalmology",
+            "ENT",
+            "Dermatology",
+            "Psychiatry",
+            "Radiology",
+            "Anesthesiology",
+            "Emergency Medicine"
+        ]
     };
 
-    const itemVariants = {
-        hidden: { 
-            y: 30, 
-            x: -30, 
-            opacity: 0 
-        },
-        visible: { 
-            y: 0, 
-            x: 0, 
-            opacity: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut",
-            },
-        },
-    };
-
-    const leftSectionVariants = {
-        hidden: { 
-            y: 50, 
-            x: -50, 
-            opacity: 0 
-        },
-        visible: { 
-            y: 0, 
-            x: 0, 
-            opacity: 1,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut",
-            },
-        },
-    };
-
-    const departmentButtonVariants = {
-        hidden: { 
-            y: 20, 
-            x: -20, 
-            opacity: 0 
-        },
-        visible: (i) => ({ 
-            y: 0, 
-            x: 0, 
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                delay: i * 0.05,
-                ease: "easeOut",
-            },
-        }),
+    const descriptions = {
+        Anatomy: "Structure of the human body",
+        Physiology: "Functions of organs and systems",
+        Biochemistry: "Chemical processes of life",
+        Pathology: "Causes and effects of disease",
+        Pharmacology: "Drugs and therapeutic actions",
+        Microbiology: "Microorganisms and infections",
+        "Forensic Medicine": "Medical science in law",
+        "Community Medicine": "Public health & prevention",
+        "General Medicine": "Non-surgical patient care",
+        Surgery: "Operative treatment of diseases",
+        Pediatrics: "Healthcare for children",
+        "Obstetrics & Gynecology": "Women’s health care",
+        Orthopedics: "Bones & joints care",
+        Ophthalmology: "Eye care and vision",
+        ENT: "Ear, nose & throat care",
+        Dermatology: "Skin and hair treatment",
+        Psychiatry: "Mental health care",
+        Radiology: "Medical imaging",
+        Anesthesiology: "Anesthesia & pain care",
+        "Emergency Medicine": "Critical and urgent care"
     };
 
     return (
-        <section className="w-full bg-gray-100 py-12">
-            <div className="w-full bg-white shadow-lg">
+        <section className="w-full bg-white py-24">
+            <div className="w-full px-6">
 
-                {/* 30% / 70% GRID */}
-                <div className="grid w-full grid-cols-[30%_70%]">
+                {/* RIGHT-ALIGNED CONTENT */}
+                <div className="flex justify-end">
 
-                    {/* LEFT 30% */}
-                    <motion.div 
-                        className="flex items-center justify-center py-14"
-                        initial="hidden"
-                        animate="visible"
-                        variants={leftSectionVariants}
-                    >
-                        <div className="relative h-[240px] w-[240px] rounded-full bg-gray-200">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="h-[190px] w-[190px] rounded-full border-[20px] border-gray-300" />
-                            </div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="h-[110px] w-[110px] rounded-full border-[20px] border-gray-400" />
-                            </div>
+                    <div className="w-full lg:w-[70%]">
+
+                        {/* HEADING */}
+                        <div className="mb-16">
+                            <p className="text-gray-600 font-medium">
+                                Departments at Medical College
+                            </p>
+                            <h2 className="mt-3 text-4xl font-extrabold text-gray-900 leading-tight">
+                                Providing Quality <br /> Education to all
+                            </h2>
                         </div>
-                    </motion.div>
 
-                    {/* RIGHT 70% (ANIMATED EVERY VISIT) */}
-                    <motion.div
-                        key={pathname}
-                        initial={{ x: 160, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="bg-[#0A0B49] px-14 py-12 text-white"
-                    >
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                    >
-                        {/* TOP LABEL */}
-                            <motion.div 
-                                className="text-[15px] font-semibold tracking-wide opacity-90"
-                                variants={itemVariants}
-                            >
-                            Departments at Medical College
-                            </motion.div>
+                        {/* BLUE CONTAINER */}
+                        <div
+                            className="
+                                h-[720px]
+                                rounded-l-xl
+                                bg-[#0A0B49]
+                                px-10 py-10
+                                flex flex-col
+                            "
+                        >
 
-                        {/* MAIN HEADING */}
-                            <motion.h2 
-                                className="mt-3 text-[42px] font-extrabold leading-tight"
-                                variants={itemVariants}
-                            >
-                            Providing Quality <br /> Education to All
-                            </motion.h2>
-
-                        {/* DEPARTMENTS LIST (BUTTONS) */}
-                            <motion.div 
-                                className="mt-8 grid grid-cols-3 gap-y-6 text-[16px] font-medium"
-                                variants={containerVariants}
-                            >
-                                <motion.div 
-                                    className="flex flex-col gap-3"
-                                    variants={containerVariants}
+                            {/* DROPDOWN */}
+                            <div className="relative mb-6 w-[240px] mx-auto">
+                                <button
+                                    onClick={() => setOpen(!open)}
+                                    className="
+                                        w-full flex items-center justify-center gap-3
+                                        rounded-md bg-white px-8 py-3
+                                        text-sm font-extrabold text-black shadow-lg
+                                    "
                                 >
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={0}
-                                    >
-                                        Anatomy
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={1}
-                                    >
-                                        Pathology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={2}
-                                    >
-                                        Community Medicine
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={3}
-                                    >
-                                        General Medicine
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={4}
-                                    >
-                                        Obstetrics & Gynaecology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={5}
-                                    >
-                                        Dermatology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={6}
-                                    >
-                                        Psychiatry
-                                    </motion.button>
-                                </motion.div>
+                                    DEPARTMENTS
+                                    <span>{open ? "▲" : "▼"}</span>
+                                </button>
 
-                                <motion.div 
-                                    className="flex flex-col gap-3"
-                                    variants={containerVariants}
-                                >
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={7}
-                                    >
-                                        Physiology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={8}
-                                    >
-                                        Pharmacology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={9}
-                                    >
-                                        Forensic Medicine
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={10}
-                                    >
-                                        General Surgery
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={11}
-                                    >
-                                        Paediatrics
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={12}
-                                    >
-                                        Neurology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={13}
-                                    >
-                                        Plastic Surgery
-                                    </motion.button>
-                                </motion.div>
+                                <AnimatePresence>
+                                    {open && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -8 }}
+                                            className="
+                                                absolute top-14 w-full
+                                                rounded-md overflow-hidden
+                                                shadow-xl bg-white z-20
+                                            "
+                                        >
+                                            {Object.keys(departmentData).map((category) => (
+                                                <button
+                                                    key={category}
+                                                    onClick={() => {
+                                                        setSelectedCategory(category);
+                                                        setOpen(false);
+                                                    }}
+                                                    className={`
+                                                        w-full py-3
+                                                        text-sm font-extrabold text-black
+                                                        border-b last:border-b-0
+                                                        hover:bg-gray-100 transition
+                                                        ${selectedCategory === category ? "bg-gray-200" : ""}
+                                                    `}
+                                                >
+                                                    {category}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
 
-                                <motion.div 
-                                    className="flex flex-col gap-3"
-                                    variants={containerVariants}
-                                >
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={14}
-                                    >
-                                        Biochemistry
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={15}
-                                    >
-                                        Microbiology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={16}
-                                    >
-                                        Cardiology
-                                    </motion.button>
-                                    <motion.button 
-                                        className={deptBtn}
-                                        variants={departmentButtonVariants}
-                                        custom={17}
-                                    >
-                                        Neuro Surgery
-                                    </motion.button>
-                                </motion.div>
+                            {/* CATEGORY TITLE */}
+                            <h3 className="mb-8 text-center text-2xl font-bold text-white">
+                                {selectedCategory} Departments
+                            </h3>
 
-                            </motion.div>
-
-                        {/* BUTTON */}
-                            <motion.div 
-                                className="mt-10"
-                                variants={itemVariants}
+                            {/* CARDS (CENTER FOR SMALL, TOP FOR LARGE) */}
+                            <div
+                                className={`flex-1 flex justify-center ${
+                                    departmentData[selectedCategory].length <= 6
+                                        ? "items-center"
+                                        : "items-start"
+                                }`}
                             >
-                            <button className="bg-[#14D7E7] px-8 py-3 text-[14px] font-extrabold text-black transition hover:scale-105">
-                                VIEW ALL DEPARTMENTS
-                            </button>
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                    {departmentData[selectedCategory].map((dept) => (
+                                        <div
+                                            key={dept}
+                                            className="
+                                                w-[220px]
+                                                rounded-lg bg-white p-5 text-center
+                                                shadow-md hover:scale-105 transition
+                                            "
+                                        >
+                                            <h4 className="text-base font-bold text-black">
+                                                {dept}
+                                            </h4>
+                                            <p className="mt-1 text-xs text-gray-600 leading-snug">
+                                                {descriptions[dept]}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
     );
