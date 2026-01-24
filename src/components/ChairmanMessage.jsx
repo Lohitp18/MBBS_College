@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ChairmanMessage() {
     return (
@@ -54,9 +55,19 @@ export default function ChairmanMessage() {
                             </div>
                         </div>
 
+                        {/* READ MORE BUTTON */}
+                        <div className="mt-8">
+                            <Link 
+                                href="/about"
+                                className="inline-block bg-[#14D7E7] hover:bg-[#12c4d3] text-black font-extrabold px-8 py-3 text-[14px] transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg rounded"
+                            >
+                                Read Full Message
+                            </Link>
+                        </div>
+
                         {/* DECORATIVE QUOTE */}
                         <div className="absolute right-0 bottom-0 text-[180px] font-bold text-[#e0e0e0] leading-none pointer-events-none">
-                            ”
+                            "
                         </div>
                     </div>
                 </div>
