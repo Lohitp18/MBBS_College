@@ -12,10 +12,10 @@ export default function ChairmanMessage() {
                 <div className="grid grid-cols-[260px_1fr] gap-20 items-start">
 
                     {/* IMAGE WITH BORDER */}
-                    <div className="relative h-[320px] w-[260px] bg-white p-2 shadow-md">
+                    <div className="relative h-[420px] w-[320px] bg-white p-2 shadow-md">
                         <div className="relative h-full w-full overflow-hidden">
                         <Image
-    src="/images/Chairman.jpeg"
+    src="/images/Dean.jpg"
     alt="Chairman"
     fill
     className="object-cover"
@@ -30,25 +30,27 @@ export default function ChairmanMessage() {
 
                         {/* TITLE */}
                         <h2 className="text-[36px] font-extrabold text-[#2b1a63]">
-                            Message From The Chairman
+                            Message From The Dean
                         </h2>
 
                         {/* PARAGRAPH */}
-                        <p className="mt-6 text-[18px] leading-relaxed text-[#333] max-w-4xl">
-                            It is with great pleasure and pride that I welcome you
-                            to the Ramaiah Medical College website. The ethos of the
-                            college is to continuously strive towards excellence.
-                            This sentiment has led to the receipt of NAAC A+
-                            accreditation and a NIRF ranking of 50<sup>th</sup>.
+                        <p className="mt-6 text-[18px] leading-relaxed text-[#333] max-w-4xl text-justify">
+                            It is my distinct pleasure and honour to welcome you to Alva’s Institute of Medical Sciences and Research Centre, Moodubidire.
+                            As Dean, I believe that our institution is dedicated  to shaping medical professionals who unite scientific excellence with deep
+                            human compassion, guided by the belief that healthcare is a profound responsibility to build a humane, healthy, and equitable society.
+                            At Alva’s, education blends rigorous science with empathy, integrity, and a strong sense of service. With devoted faculty, advanced
+                            facilities, and active community engagement, we prepare students to meet the challenges of modern medicine through knowledge, values,
+                            and ethical practice. Join us in advancing the frontiers of healthcare with compassion, innovation, and excellence, and in shaping a
+                            future where quality healthcare is accessible, ethical, and truly patient-centred.
                         </p>
 
                         {/* AUTHOR */}
                         <div className="mt-10">
                             <div className="text-[18px] font-bold text-[#000]">
-                                Dr. M. Mohan Alva
+                                Dr. Mahabalesh Shetty
                             </div>
                             <div className="mt-1 text-[16px] text-[#444]">
-                                Chairman, Alva’s Education Foundation
+                                Dean, Alva’s Institute of Medical Sciences and Research Centre, Moodubidire.
                             </div>
                         </div>
 
