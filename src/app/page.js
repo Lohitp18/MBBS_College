@@ -1,7 +1,9 @@
 import ChairmanMessage from "@/components/ChairmanMessage";
 import Departments from "@/components/Departments";
 import Programs from "@/components/Program";
-import Image from "next/image";
+import Ourstory from "@/components/Ourstory";
+
+
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <Programs />
       <ChairmanMessage />
       <Departments />
+      <Ourstory/>
+
     </>
   );
 }
