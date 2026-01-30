@@ -3,71 +3,71 @@ export const navRoutes = [
         name: 'About',
         path: '/about',
         id: 'about',
-    //     dropdown: [
-    //         {
-    //             name: 'AEF',
-    //             path: '/about/aef',
-    //             id: 'aef',
-    //             dropdown: [
-    //                 {
-    //                     name: 'About AEF',
-    //                     path: '/about/aef/about-aef',
-    //                     id: 'about-aef',
-    //                 },
-    //                 {
-    //                     name: 'Colleges List',
-    //                     path: '/about/aef/colleges-list',
-    //                     id: 'colleges-list',
-    //                 },
-    //                 {
-    //                     name: 'Cultural Events',
-    //                     path: '/about/aef/cultural-events',
-    //                     id: 'cultural-events',
-    //                 },
-    //                 {
-    //                     name: 'Sports',
-    //                     path: '/about/aef/sports',
-    //                     id: 'sports'
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             name: 'About College',
-    //             path: '/about/about-college',
-    //             id: 'about-college',
-    //         },
-    //         {
-    //             name: 'Chairman Message',
-    //             path: '/about/chairman-message',
-    //             id: 'chairman-message',
-    //             type: 'rich-card',
-    //             image: '/images/mohan-alva.jpg',
-    //             name: 'Dr. M. Mohan Alva',
-    //             qualification: `B.A.M.S`,
-    //             description: 'Our chairman shares our long-term vision and values.',
-    //             button: {
-    //                 label: 'Know more',
-    //                 href: '/about/chairman-message'
-    //             }
-    //         },
-    //         {
-    //             name: 'Principal Message',
-    //             path: '/about/principal-message',
-    //             id: 'principal-message',
-    //             type: 'rich-card',
-    //             name: 'Dr. Madhu G.R.',
-    //             qualification: `Ph.D, M.P.Ed, B.P.Ed, NET, KSET`,
-    //             image: '/images/madhu-profile.jpg',
-    //             description: 'A message from our principal to students and faculty.',
-    //             button: {
-    //                 label: 'Know more',
-    //                 href: '/about/principal-message'
-    //             }
-    //         },
-    //     ],
+        //     dropdown: [
+        //         {
+        //             name: 'AEF',
+        //             path: '/about/aef',
+        //             id: 'aef',
+        //             dropdown: [
+        //                 {
+        //                     name: 'About AEF',
+        //                     path: '/about/aef/about-aef',
+        //                     id: 'about-aef',
+        //                 },
+        //                 {
+        //                     name: 'Colleges List',
+        //                     path: '/about/aef/colleges-list',
+        //                     id: 'colleges-list',
+        //                 },
+        //                 {
+        //                     name: 'Cultural Events',
+        //                     path: '/about/aef/cultural-events',
+        //                     id: 'cultural-events',
+        //                 },
+        //                 {
+        //                     name: 'Sports',
+        //                     path: '/about/aef/sports',
+        //                     id: 'sports'
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             name: 'About College',
+        //             path: '/about/about-college',
+        //             id: 'about-college',
+        //         },
+        //         {
+        //             name: 'Chairman Message',
+        //             path: '/about/chairman-message',
+        //             id: 'chairman-message',
+        //             type: 'rich-card',
+        //             image: '/images/mohan-alva.jpg',
+        //             name: 'Dr. M. Mohan Alva',
+        //             qualification: `B.A.M.S`,
+        //             description: 'Our chairman shares our long-term vision and values.',
+        //             button: {
+        //                 label: 'Know more',
+        //                 href: '/about/chairman-message'
+        //             }
+        //         },
+        //         {
+        //             name: 'Principal Message',
+        //             path: '/about/principal-message',
+        //             id: 'principal-message',
+        //             type: 'rich-card',
+        //             name: 'Dr. Madhu G.R.',
+        //             qualification: `Ph.D, M.P.Ed, B.P.Ed, NET, KSET`,
+        //             image: '/images/madhu-profile.jpg',
+        //             description: 'A message from our principal to students and faculty.',
+        //             button: {
+        //                 label: 'Know more',
+        //                 href: '/about/principal-message'
+        //             }
+        //         },
+        //     ],
     },
 
- 
+
     {
         name: 'Admissions',
         path: '/admissions',
@@ -176,18 +176,18 @@ export const navRoutes = [
         name: 'Departments',
         path: '/departments',
         id: 'departments',
-        
+
     },
     {
         name: 'Hospital',
-        path: 'https://web.ncte.gov.in/',
+        path: 'https://alvashealthcentre.com/',
         id: 'ncte',
     },
     {
         name: 'Campus Life',
         path: '/campus-life',
         id: 'campus-life',
-        
+
     },
     {
         name: 'Contact',

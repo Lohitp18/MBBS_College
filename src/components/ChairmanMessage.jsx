@@ -16,7 +16,7 @@ export default function ChairmanMessage() {
                     <div className="relative h-[420px] w-[320px] bg-white p-2 shadow-md">
                         <div className="relative h-full w-full overflow-hidden">
                         <Image
-    src="/images/Dean.jpg"
+    src="/images/chairman.jpeg"
     alt="Chairman"
     fill
     className="object-cover"
@@ -31,27 +31,23 @@ export default function ChairmanMessage() {
 
                         {/* TITLE */}
                         <h2 className="text-[36px] font-extrabold text-[#2b1a63]">
-                            Message From The Dean
+                            Message From The Chairman
                         </h2>
 
                         {/* PARAGRAPH */}
                         <p className="mt-6 text-[18px] leading-relaxed text-[#333] max-w-4xl text-justify">
-                            It is my distinct pleasure and honour to welcome you to Alva’s Institute of Medical Sciences and Research Centre, Moodubidire.
-                            As Dean, I believe that our institution is dedicated  to shaping medical professionals who unite scientific excellence with deep
-                            human compassion, guided by the belief that healthcare is a profound responsibility to build a humane, healthy, and equitable society.
-                            At Alva’s, education blends rigorous science with empathy, integrity, and a strong sense of service. With devoted faculty, advanced
-                            facilities, and active community engagement, we prepare students to meet the challenges of modern medicine through knowledge, values,
-                            and ethical practice. Join us in advancing the frontiers of healthcare with compassion, innovation, and excellence, and in shaping a
-                            future where quality healthcare is accessible, ethical, and truly patient-centred.
+                           Knowledge is power and education is a path to imbibe it. Alva’s Education Foundation (AEF) purports to do exactly the same that is, transform education into knowledge. It is knowledge that will empower the youth of today to understand the information explosions taking place in the rapidly globalizing world. Personal integrity and ethics can be maintained only with a strong mind and a mind can become strong only with knowledge.
+
+Alva’s Education Foundation (AEF) aims to develop individuals who will be ready to take up real challenges presented to them. At the same time foundation wants these individuals to be culturally and ethically enlightened because not only the industry but our country needs such individuals today.
                         </p>
 
                         {/* AUTHOR */}
                         <div className="mt-10">
                             <div className="text-[18px] font-bold text-[#000]">
-                                Dr. Mahabalesh Shetty
+                                Dr. Mohan Alva
                             </div>
                             <div className="mt-1 text-[16px] text-[#444]">
-                                Dean, Alva’s Institute of Medical Sciences and Research Centre, Moodubidire.
+                                Chairman, Alva’s Institute of Medical Sciences and Research Centre, Moodubidire.
                             </div>
                         </div>
 

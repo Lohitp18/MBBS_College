@@ -7,7 +7,11 @@ import { useEffect, useRef, useState } from "react";
 export default function HeroCarousel() {
     const IMAGES = [
         "/images/banner-3.jpg",
-        "/images/banner-2.jpg"
+        "/images/banner-2.jpg",
+        
+        "/images/banner-5.jpeg",
+        "/images/banner-7.jpeg",
+
         // "/images/hero-section2.png",
         // "/images/hero-section3.png"
     ];

@@ -55,15 +55,15 @@ export default function RootLayout({ children }) {
             <div className="flex-1 bg-[#0A0B49] text-white text-sm flex items-center justify-between px-4 md:px-10 gap-4">
               <div className="flex items-center gap-2">
                 <span></span>
-                <span>+91-8150079070</span>
+                <span>+91-9945449784, 08258-236821</span>
               </div>
               <div className="hidden md:flex items-center gap-2">
                 <span className="text-red-400">📍</span>
-                <span>Moodubidire Dakshina Kannada - 574227</span>
+                <span>Tenka Mijar , Moodubidire -574227</span>
               </div>
               <div className="hidden sm:flex items-center gap-2">
                 <span className="text-red-400"></span>
-                <Link href="mailto:acpe@alvas.org"><span>acpe@alvas.org</span></Link>
+                <Link href="mailto:acpe@alvas.org"><span>office@aimsarc.org</span></Link>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
               </Link>
               <div className="leading-tight">
                 <div className="text-sm md:text-lg text-black font-semibold tracking-wide">
-                  Alva`s Medical Centre
+                  ALVA'S INSTITUTE OF MEDICAL SCIENCES AND RESEARCH CENTRE
                 </div>
               </div>
             </div>
