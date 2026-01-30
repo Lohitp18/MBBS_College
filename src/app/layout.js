@@ -19,6 +19,7 @@ import { usePathname } from "next/navigation";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100","200","300","400","500","600","700","800","900"],
+  variable: "--font-roboto",
 });
 
 const transition = {
@@ -30,10 +31,9 @@ const transition = {
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const isHomePage = pathname === "/";
 
   // ✅ LABEL MAPPING
   const getRouteName = (name) => {
@@ -45,33 +45,38 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <header className="w-full">
-          {/* TOP STRIP */}
-          <div className="w-full flex">
-            <div className="bg-[#e4322f] px-6 py-4" />
-            <div className="flex-1 bg-[#0A0B49] text-white text-sm flex items-center justify-between px-10">
-              <span>+91-9945449784, 08258-236821</span>
-              <span>Tenka Mijar, Moodubidire - 574227</span>
-              <Link href="mailto:office@aimsarc.org">
-                office@aimsarc.org
-              </Link>
-            </div>
-          </div>
 
-          {/* HEADER */}
-          <div className="w-full bg-white px-10 flex items-center justify-between">
-            <div className="flex items-center gap-6">
+        {/* 🔵 BLUE TOP BAR (scrolls away normally) */}
+        <div className="w-full flex bg-[#0A0B49] text-white text-xs md:text-sm items-center justify-between px-4 md:px-10 h-[48px]">
+          <div className="flex gap-4">
+            <span>+91-9945449784</span>
+            <span className="hidden sm:inline">08258-236821</span>
+          </div>
+          <span className="hidden lg:flex items-center gap-2">
+            📍 Tenka Mijar, Moodubidire - 574227
+          </span>
+          <Link href="mailto:office@aimsarc.org" className="hover:underline">
+            office@aimsarc.org
+          </Link>
+        </div>
+
+        {/* ⚪ STICKY HEADER */}
+        <header className="sticky top-0 left-0 w-full z-[100] bg-white shadow-md">
+          <div className="w-full py-2 px-4 md:px-10 flex items-center justify-between gap-6">
+
+            {/* LOGO + TITLE */}
+            <div className="flex items-center gap-4">
               <Link href="/">
                 <Image
                   src="/images/logo-1.png"
                   width={85}
                   height={58}
                   alt="Logo"
+                  className="shrink-0"
                 />
               </Link>
 
-              {/* INSTITUTE NAME */}
-              <div className="text-[15px] font-semibold leading-snug">
+              <div className="text-[15px] font-semibold leading-snug text-[#0A0B49]">
                 <span className="block">
                   ALVA'S INSTITUTE OF MEDICAL SCIENCES
                 </span>
@@ -81,10 +86,9 @@ export default function RootLayout({ children }) {
               </div>
             </div>
 
-            {/* DESKTOP MENU */}
-            <nav className="hidden lg:flex gap-6 text-[15px] text-gray-600">
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex items-center gap-6 text-[15px] text-gray-700">
               {navRoutes.map((route) => {
-                // ✅ REMOVE DROPDOWN ONLY FOR HAPPENINGS@AIMSARC
                 const hasDropdown =
                   route.dropdown?.length > 0 &&
                   route.name !== "Campus Life";
@@ -100,7 +104,7 @@ export default function RootLayout({ children }) {
                   >
                     <Link
                       href={route.path}
-                      className="flex items-center gap-1 py-8 px-1 hover:text-orange-600"
+                      className="flex items-center gap-1 py-4 hover:text-orange-600"
                     >
                       {getRouteName(route.name)}
                       {hasDropdown && (
@@ -134,23 +138,47 @@ export default function RootLayout({ children }) {
               })}
             </nav>
 
-            {/* MOBILE BUTTON */}
+            {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2"
+              className="lg:hidden p-2 rounded-md hover:bg-gray-100"
             >
               {mobileMenuOpen ? <Cross1Icon /> : <HamburgerMenuIcon />}
             </button>
           </div>
+
+          {/* MOBILE NAV */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden bg-white border-t p-4 space-y-4 shadow-xl">
+              {navRoutes.map((route) => (
+                <Link
+                  key={route.id}
+                  href={route.path}
+                  className="block text-gray-700 hover:text-orange-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {getRouteName(route.name)}
+                </Link>
+              ))}
+            </div>
+          )}
         </header>
 
-        {isHomePage && <HeroCarousel />}
-
-        <main>{children}</main>
+        {/* MAIN CONTENT */}
+        <main>
+          {isHomePage && <HeroCarousel />}
+          {children}
+        </main>
 
         <Footer />
 
-        <Script src="https://unpkg.com/taos@latest/dist/taos.js" />
+        <Script id="taos-init">
+          {`document.documentElement.classList.add('js')`}
+        </Script>
+        <Script
+          src="https://unpkg.com/taos@latest/dist/taos.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
